@@ -1,0 +1,101 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:PageNavigationAppAvalonia.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:PageNavigationAppAvalonia.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="PageNavigationAppAvalonia.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="PageNavigationAppAvalonia"
+        Height="600"
+        Width="850"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        TransparencyLevelHint="Transparent"
+        SystemDecorations="None"
+        ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaChromeHints="NoChrome"
+        ExtendClientAreaTitleBarHeightHint="-1">
+    <Window.Styles>
+        <Style Selector="Button.window-btn">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Width" Value="12"/>
+            <Setter Property="Height" Value="12"/>
+            <Setter Property="CornerRadius" Value="6"/>
+            <!-- <Setter Property="Background" Value="#2b2f33"/> -->
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+        <Style Selector="Button.window-btn.minimize-btn">
+            <Setter Property="Background" Value="#2b2f33"/>
+        </Style>
+        <Style Selector="Button.window-btn.close-btn">
+            <Setter Property="Background" Value="#262a2e"/>
+        </Style>
+        <Style Selector="Button.window-btn.minimize-btn:pointerover">
+            <Setter Property="Background" Value="#f1c40f"/>
+            <Setter Property="Opacity" Value="0.85"/>
+        </Style>
+        <Style Selector="Button.window-btn.close-btn:pointerover">
+            <Setter Property="Background" Value="#e74c3c"/>
+            <Setter Property="Opacity" Value="0.85"/>
+        </Style>
+        <Style Selector="Button.window-btn:pressed">
+            <Setter Property="Opacity" Value="0.7"/>
+        </Style>
+    </Window.Styles>
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+                     to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    <Border CornerRadius="20" Background="#212529" Margin="10" ClipToBounds="True" x:DataType="viewModels:MainWindowViewModel">
+        <Grid RowDefinitions="Auto,*">
+            
+            <!-- Title Bar -->
+            <Border Name="TitleBar" Height="40" Background="#1b1f23" Grid.Row="0" Cursor="Hand">
+                    
+                <!-- grilla para ordenar titlebar -->
+                <Grid ColumnDefinitions="Auto,*,Auto" Margin="12,0">
+                    <!-- grupo de botones -->
+                    <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                        <Button Classes="window-btn minimize-btn" Grid.Column="1" Click="OnMinimizeClick"/> 
+                        <Button Classes="window-btn close-btn" Grid.Column="2" Click="OnCloseClick"/>
+                    </StackPanel>
+                    
+                    <!-- icono con titulo -->
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center"
+                                VerticalAlignment="Center">
+                        <Image Source="/Assets/avalonia-logo.ico" Width="18" Height="18"/>
+                        <!-- titulo centrado -->
+                        <TextBlock Text="Page Navigation App using Avalonia UI" Foreground="White" FontWeight="SemiBold"/>
+                    </StackPanel>
+                    
+                    <!-- spacer para balancear -->
+                    <Border Grid.Column="0" Width="44"/>
+                </Grid>
+            </Border>
+            
+            <!-- Area del contenido -->
+            <Grid Grid.Row="1" ColumnDefinitions="220,*">
+                <!-- Menu lateral -->
+                <Border Grid.Column="0" Background="#1f2428" Padding="12">
+                    <TextBlock Text="Menu" Foreground="White"/>
+                </Border>
+                <!-- Contenido principal -->
+                <Border Grid.Column="1" Background="#212529" Padding="12">
+                    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" 
+                               VerticalAlignment="Center" Foreground="White"/>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
