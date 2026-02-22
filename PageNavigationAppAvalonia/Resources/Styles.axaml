@@ -1,0 +1,42 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <!-- Add Controls for Previewer Here -->
+        </Border>
+    </Design.PreviewWith>
+
+    <!-- Add Styles Here -->
+    <Style Selector="Button.window-btn">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Width" Value="12"/>
+        <Setter Property="Height" Value="12"/>
+        <Setter Property="CornerRadius" Value="6"/>
+        <!-- <Setter Property="Background" Value="#2b2f33"/> -->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}">
+                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <Style Selector="Button.window-btn.minimize-btn">
+        <Setter Property="Background" Value="{DynamicResource WindowButtonMinimizeBrush}"/>   <!--#2b2f33-->
+    </Style>
+    <Style Selector="Button.window-btn.close-btn">
+        <Setter Property="Background" Value="{DynamicResource WindowButtonCloseBrush}"/> <!--#262a2e-->
+    </Style>
+    <Style Selector="Button.window-btn.minimize-btn:pointerover">
+        <Setter Property="Background" Value="{DynamicResource WindowButtonMinimizeHoverBrush}"/> <!--#f1c40f-->
+        <Setter Property="Opacity" Value="0.85"/>
+    </Style>
+    <Style Selector="Button.window-btn.close-btn:pointerover">
+        <Setter Property="Background" Value="{DynamicResource WindowButtonCloseHoverBrush}"/> <!--#e74c3c-->
+        <Setter Property="Opacity" Value="0.85"/>
+    </Style>
+    <Style Selector="Button.window-btn:pressed">
+        <Setter Property="Opacity" Value="0.7"/>
+    </Style>
+</Styles>

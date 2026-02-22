@@ -3,6 +3,9 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="PageNavigationAppAvalonia/App.axaml" value="PageNavigationAppAvalonia/PageNavigationAppAvalonia.csproj" />
+        <entry key="PageNavigationAppAvalonia/Resources/Colors.axaml" value="PageNavigationAppAvalonia/PageNavigationAppAvalonia.csproj" />
+        <entry key="PageNavigationAppAvalonia/Resources/Styles.axaml" value="PageNavigationAppAvalonia/PageNavigationAppAvalonia.csproj" />
         <entry key="PageNavigationAppAvalonia/Views/MainWindow.axaml" value="PageNavigationAppAvalonia/PageNavigationAppAvalonia.csproj" />
       </map>
     </option>

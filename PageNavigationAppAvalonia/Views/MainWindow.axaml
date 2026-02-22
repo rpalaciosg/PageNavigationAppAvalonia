@@ -18,50 +18,17 @@
         ExtendClientAreaToDecorationsHint="True"
         ExtendClientAreaChromeHints="NoChrome"
         ExtendClientAreaTitleBarHeightHint="-1">
-    <Window.Styles>
-        <Style Selector="Button.window-btn">
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Width" Value="12"/>
-            <Setter Property="Height" Value="12"/>
-            <Setter Property="CornerRadius" Value="6"/>
-            <!-- <Setter Property="Background" Value="#2b2f33"/> -->
-            <Setter Property="Template">
-                <ControlTemplate>
-                    <Border Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Setter>
-        </Style>
-        <Style Selector="Button.window-btn.minimize-btn">
-            <Setter Property="Background" Value="#2b2f33"/>
-        </Style>
-        <Style Selector="Button.window-btn.close-btn">
-            <Setter Property="Background" Value="#262a2e"/>
-        </Style>
-        <Style Selector="Button.window-btn.minimize-btn:pointerover">
-            <Setter Property="Background" Value="#f1c40f"/>
-            <Setter Property="Opacity" Value="0.85"/>
-        </Style>
-        <Style Selector="Button.window-btn.close-btn:pointerover">
-            <Setter Property="Background" Value="#e74c3c"/>
-            <Setter Property="Opacity" Value="0.85"/>
-        </Style>
-        <Style Selector="Button.window-btn:pressed">
-            <Setter Property="Opacity" Value="0.7"/>
-        </Style>
-    </Window.Styles>
-
+    
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
                      to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
-    <Border CornerRadius="20" Background="#212529" Margin="10" ClipToBounds="True" x:DataType="viewModels:MainWindowViewModel">
+    <Border CornerRadius="20" Background="{DynamicResource WindowSurfaceBrush}" Margin="10" ClipToBounds="True" x:DataType="viewModels:MainWindowViewModel">
         <Grid RowDefinitions="Auto,*">
             
             <!-- Title Bar -->
-            <Border Name="TitleBar" Height="40" Background="#1b1f23" Grid.Row="0" Cursor="Hand">
+            <Border Name="TitleBar" Height="40" Background="{DynamicResource TitleBarBrush}" Grid.Row="0" Cursor="Hand">
                     
                 <!-- grilla para ordenar titlebar -->
                 <Grid ColumnDefinitions="Auto,*,Auto" Margin="12,0">
@@ -76,7 +43,7 @@
                                 VerticalAlignment="Center">
                         <Image Source="/Assets/avalonia-logo.ico" Width="18" Height="18"/>
                         <!-- titulo centrado -->
-                        <TextBlock Text="Page Navigation App using Avalonia UI" Foreground="White" FontWeight="SemiBold"/>
+                        <TextBlock Text="Page Navigation App using Avalonia UI" Foreground="{DynamicResource TextOnDarkBrush}" FontWeight="SemiBold"/>
                     </StackPanel>
                     
                     <!-- spacer para balancear -->
@@ -87,13 +54,13 @@
             <!-- Area del contenido -->
             <Grid Grid.Row="1" ColumnDefinitions="220,*">
                 <!-- Menu lateral -->
-                <Border Grid.Column="0" Background="#1f2428" Padding="12">
-                    <TextBlock Text="Menu" Foreground="White"/>
+                <Border Grid.Column="0" Background="{DynamicResource SidebarBrush}" Padding="12">
+                    <TextBlock Text="Menu" Foreground="{DynamicResource TextOnDarkBrush}"/>
                 </Border>
                 <!-- Contenido principal -->
-                <Border Grid.Column="1" Background="#212529" Padding="12">
+                <Border Grid.Column="1" Background="{DynamicResource WindowSurfaceBrush}" Padding="12">
                     <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" 
-                               VerticalAlignment="Center" Foreground="White"/>
+                               VerticalAlignment="Center" Foreground="{DynamicResource TextOnDarkBrush}"/>
                 </Border>
             </Grid>
         </Grid>

@@ -1,0 +1,13 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="WindowButtonMinimizeBrush" Color="#2b2f33"/>
+    <SolidColorBrush x:Key="WindowButtonCloseBrush" Color="#262a2e"/>
+    <SolidColorBrush x:Key="WindowButtonMinimizeHoverBrush" Color="#f1c40f"/>
+    <SolidColorBrush x:Key="WindowButtonCloseHoverBrush" Color="#e74c3c"/>
+    
+    <SolidColorBrush x:Key="WindowSurfaceBrush" Color="#212529"/>
+    <SolidColorBrush x:Key="TitleBarBrush" Color="#1b1f23"/>
+    <SolidColorBrush x:Key="SidebarBrush" Color="#1f2428"/>
+    
+    <SolidColorBrush x:Key="TextOnDarkBrush" Color="#ffffff"/>
+</ResourceDictionary>
